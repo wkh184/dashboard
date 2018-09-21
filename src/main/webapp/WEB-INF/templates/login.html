@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login page</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}" />
+<!-- Bootstrap Core CSS -->
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+    <body>
+	<nav class="navbar navbar-expand-sm d-flex justify-content-between">
+		<!-- logo -->
+		<a class="navbar-brand" href="#"><img th:src="@{/images/logo_nuhs.png}" alt=""></a>
+	</nav>
+	<br>
+        <h1>Login page</h1>
+        <p th:if="${loginError}" class="error">Wrong user or password</p>
+        <form th:action="@{/login.html}" method="post">
+            <label for="username">Username</label>:
+            <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+            <!-- 
+            <label for="password">Password</label>:
+            <input type="password" id="password" name="password" /> <br />
+             -->
+            <input type="submit" value="Log in" />
+        </form>
+		<div th:insert="~{fragments/footer :: footer}"></div>
+    </body>
+</html>

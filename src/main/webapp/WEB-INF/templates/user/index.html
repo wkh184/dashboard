@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>NUHS Dashboard</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}" />
+
+<!-- Bootstrap Core CSS -->
+<link href="lib/bootstrap/css/bootstrap.min.css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+	<div th:insert="~{fragments/header :: header}"></div>
+	<nav class="navbar navbar-expand-sm d-flex justify-content-between">
+		<!-- logo -->
+		<a class="navbar-brand" href="#"><img th:src="@{/images/logo_nuhs.png}"
+			alt=""></a>
+	</nav>
+	<br>
+	<h1>NUHS Dashboard</h1>
+	<p>
+		This is the <b>user</b> zone
+	</p>
+	<p>
+		Only authenticated users with role <b>USER</b> are allowed to see this page.
+	</p>
+	<p>
+		<a href="../index.html" th:href="@{/index.html}">Back to home page</a>
+	</p>
+	<div th:insert="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>

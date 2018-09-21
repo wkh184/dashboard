@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>NUHS Dashboard</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}" />
+
+<!-- Bootstrap Core CSS -->
+<link href="lib/bootstrap/css/bootstrap.min.css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="~{fragments/header :: header}"></div>
+
+	<div class="container-fluid text-center">
+		<h2>GCTO OFFICE SERVICES</h2>
+		<h4>What we offer</h4>
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>DISCOVERY AI Guide</h4>
+				<p>DISCOVERY AI Guide</p>
+				<a href="guide.html" th:href="@{/guide.html}">DISCOVERY AI Guide</a>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>Patient View</h4>
+				<p>Patient view page (accessible by Doctor)</p>
+				<a href="patient/patient_card.html" th:href="@{/patient/patient_card.html}">patient view</a>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>Command View</h4>
+				<p>Command view page (accessible by Super User)</p>
+				<a href="construction" th:href="construction">command view</a>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>CIH Dashboard</h4>
+				<p>CIH Dashboard</p>
+				<a href="/corp/dashboard.html" th:href="@{/corp/dashboard.html}">CIH Dashboard</a>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>DISCOVERY AI Data</h4>
+				<p>DISCOVERY AI data query</p>
+				<a href="construction" th:href="construction">data query</a>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<h4>Place Holder</h4>
+				<p>Place Holder</p>
+				<a href="construction" th:href="construction">place holder</a>
+			</div>
+		</div>
+	</div>
+	<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>

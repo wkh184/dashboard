@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>NUHS</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="lib/bootstrap/css/bootstrap.min.css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="lib/font-awesome/css/font-awesome.min.css" th:href="@{/lib/font-awesome/css/font-awesome.min.css}" rel="stylesheet"
+	type="text/css">
+
+</head>
+
+<body>
+	<div th:insert="~{fragments/header :: header}"></div>
+
+	<div class="container">
+  		<h1 class="display-3" style="font-size:300%;">Under Construction</h1>
+		<img class="align-content-center" style="width:75%" src="images/discovery.jpg" th:src="@{/images/discovery.jpg}" ></img>
+	</div>
+	<div th:insert="~{fragments/footer :: footer}"></div>
+
+</body>
+
+</html>
