@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+public class DiscoverySecurityConfig extends WebSecurityConfigurerAdapter {
 	final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 //	@Autowired
@@ -26,7 +26,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired 
 	DiscoveryAuthenticationProvider discoveryAuthenticationProvider;
 
-	public SpringSecurityConfig() {
+	public DiscoverySecurityConfig() {
 		super();
 	}
 

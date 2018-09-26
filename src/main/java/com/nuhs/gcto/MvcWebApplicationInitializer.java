@@ -18,12 +18,12 @@ public class MvcWebApplicationInitializer extends AbstractAnnotationConfigDispat
 	
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-	    return new Class<?>[] { SpringWebConfig.class };
+	    return new Class<?>[] { DiscoveryWebConfig.class };
 	}
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-	    return new Class<?>[] { SpringSecurityConfig.class };
+	    return new Class<?>[] { DiscoverySecurityConfig.class };
 	}
 	
 	@Override

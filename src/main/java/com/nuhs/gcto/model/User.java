@@ -9,12 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import javassist.bytecode.Descriptor.Iterator;
 
 @Entity
 @Table(name="user")
@@ -50,10 +47,9 @@ public class User {
 
 	@OneToMany(mappedBy="userId", targetEntity=Role.class, fetch=FetchType.EAGER)
 	private Collection<Role> roles; 
-	
 
-//	@Transient
-//	private String[] roles;
+	//	@Transient
+	//	private String[] roles;
 
 	public User(String email, String password) {
 		super();
@@ -65,8 +61,8 @@ public class User {
 		super();
 		this.adid = adid;
 		this.password = password;
-//		this.roles = new String[1];
-//		roles[0] = role;
+		//		this.roles = new String[1];
+		//		roles[0] = role;
 	}
 
 
@@ -145,14 +141,14 @@ public class User {
 
 	public String getRoles() {
 		// TODO Auto-generated method stub
-//		String role = "";
-//		if("cih".equals(adid)) {
-//			role = "CORP";
-//		}else {
-//			role = "USER";
-//		}
-//		return role;
-//		String[] rolesStr = new String[roles.size()];
+		//		String role = "";
+		//		if("cih".equals(adid)) {
+		//			role = "CORP";
+		//		}else {
+		//			role = "USER";
+		//		}
+		//		return role;
+		//		String[] rolesStr = new String[roles.size()];
 		StringBuffer sb = new StringBuffer();
 		int count = 0;
 		java.util.Iterator<Role> iterator = roles.iterator();
