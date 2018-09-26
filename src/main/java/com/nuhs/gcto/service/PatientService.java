@@ -9,21 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.nuhs.gcto.dao.ResultPredictionDAO;
+import com.nuhs.gcto.dao.AuditDataDAO;
 import com.nuhs.gcto.model.IResult;
 import com.nuhs.gcto.model.LabResult;
 import com.nuhs.gcto.model.Patient;
-import com.nuhs.gcto.model.ReadmResultPrediction;
 import com.nuhs.gcto.model.ResultPrediction;
-import com.nuhs.gcto.repository.IssueRepository;
 import com.nuhs.gcto.repository.ResultPredictionRepository;
 
 @Service
 public class PatientService {
 	final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-	
+
 	@Autowired
 	private ResultPredictionRepository resultPredictionRepository;
+
+	@Autowired
+	AuditDataDAO auditDataDAO;
 
 
 	public Model simulateLoadPatient(Model model) {

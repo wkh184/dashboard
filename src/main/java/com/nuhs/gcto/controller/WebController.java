@@ -1,6 +1,7 @@
 package com.nuhs.gcto.controller;
 
 import java.lang.invoke.MethodHandles;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.unbescape.html.HtmlEscape;
 
+import com.nuhs.gcto.dao.AuditUserDAO;
 import com.nuhs.gcto.model.Dashboard;
 import com.nuhs.gcto.model.Issue;
 import com.nuhs.gcto.service.DashboardService;
@@ -43,6 +45,8 @@ public class WebController {
 	@Autowired
 	private PatientService patientService;
 
+	@Autowired
+	AuditUserDAO auditUserDAO;
 
 	@RequestMapping("/")
 	public String root(Locale locale) {
@@ -113,9 +117,15 @@ public class WebController {
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {  
 		logger.debug("logoutPage");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
+		String adid = auth.getName();
 		if (auth != null){      
 			new SecurityContextLogoutHandler().logout(request, response, auth);  
 		}  
+		Calendar calendar = Calendar.getInstance();
+		java.util.Date now = calendar.getTime();
+		java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+		logger.debug("logout {}", adid);
+		auditUserDAO.createAuditUser(adid, "Logout", currentTimestamp);
 		return "redirect:/index.html";  
 	}  
 

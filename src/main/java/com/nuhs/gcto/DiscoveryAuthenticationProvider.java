@@ -2,6 +2,7 @@ package com.nuhs.gcto;
 
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.nuhs.gcto.dao.AuditUserDAO;
 import com.nuhs.gcto.model.User;
 import com.nuhs.gcto.service.UserDetailsServiceImp;
 
@@ -27,6 +29,9 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 
 	@Autowired
 	UserDetailsServiceImp userService;
+	
+	@Autowired
+	AuditUserDAO auditUserDAO;
 
 	@Override
 	public Authentication authenticate(Authentication authentication)
@@ -39,7 +44,7 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 		if (!(credentials instanceof String)) {
 			return null;
 		}
-		String password = credentials.toString();
+//		String password = credentials.toString();
 
 		//No password checking, just checking that ADID exists
 		if(userService == null) {
@@ -58,6 +63,10 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 		logger.debug("Roles = {}", auth.getAuthorities());
 		logger.debug("Authenticated = {}", auth.isAuthenticated());
 		logger.debug("authenticate return");
+		Calendar calendar = Calendar.getInstance();
+		java.util.Date now = calendar.getTime();
+		java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+		auditUserDAO.createAuditUser(adid, "Login", currentTimestamp);
 		return auth;
 	}
 
@@ -66,7 +75,6 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 			UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
 		// TODO Auto-generated method stub
 		logger.debug("additionalAuthenticationChecks");
-
 	}
 
 	@Override
@@ -74,7 +82,6 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 			throws AuthenticationException {
 		// TODO Auto-generated method stub
 		logger.debug("retrieveUser");
-
 		return null;
 	}
 

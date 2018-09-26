@@ -39,6 +39,4 @@ public class DiscoveryDbConfig {
 		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
 		return driverManagerDataSource;
 	}
-
-
 }
