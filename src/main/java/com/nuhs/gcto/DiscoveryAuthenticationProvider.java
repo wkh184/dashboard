@@ -47,9 +47,9 @@ public class DiscoveryAuthenticationProvider extends AbstractUserDetailsAuthenti
 //		String password = credentials.toString();
 
 		//No password checking, just checking that ADID exists
-		if(userService == null) {
-			logger.debug("userService is null");
-		}
+//		if(userService == null) {
+//			logger.debug("userService is null");
+//		}
 		User user = userService.findUserbyADID(adid);
 
 		if (user == null) {

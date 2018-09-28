@@ -58,9 +58,10 @@ public class WebController {
 	/** CIH Dashboard */
 	@RequestMapping("corp/dashboard.html")
 	public String dashboard(Model model) {
-		Dashboard dashboard = dashboardService.prepareDashBoard();
-		model.addAttribute("dashboard", dashboard);		
-		return "dashboard";
+//		Dashboard dashboard = dashboardService.prepareDashBoard();
+//		model.addAttribute("dashboard", dashboard);		
+//		return "dashboard";
+		return "construction";
 	}
 
 	/** Patient card */
@@ -155,6 +156,7 @@ public class WebController {
 	/** Error page. */
 	@RequestMapping("/403.html")
 	public String forbidden() {
+		logger.debug("forbidden");
 		return "403";
 	}
 
